@@ -1,27 +1,26 @@
 import React from 'react'
-import TestUtils from 'react-addons-test-utils'
-import { expect } from 'chai'
+import expect from 'expect'
 import InputBox from '../../src/components/InputBox'
+import { shallow } from 'enzyme'
 
 function setup() {
-  const renderer = TestUtils.createRenderer()
+  const actions = {
+    onAddTodo: expect.createSpy()
+  }
 
-  renderer.render(
-    <InputBox />
+  const component = shallow(
+    <InputBox {...actions}/>
   )
 
-  let output = renderer.getRenderOutput()
-
   return {
-    output,
-    renderer
+    component
   }
 }
 
 describe('InputBox', () => {
-  const { output } = setup()
+  const { component } = setup()
 
   it('renders a form element', () => {
-    expect(output.type).to.equal('form')
+    expect(component.type()).toEqual('form')
   })
 })

@@ -4,25 +4,7 @@ import { connect } from 'react-redux'
 import TodoList from '../components/TodoList'
 import InputBox from '../components/InputBox'
 import * as TodoActions from '../actions'
-
-class App extends Component {
-  render() {
-    const { todos, actions } = this.props
-
-    return (
-      <div>
-        <h1>Hello!</h1>
-        <InputBox onAddTodo={actions.addTodo} />
-        <TodoList todos={todos}/>
-      </div>
-    )
-  }
-}
-
-App.propTypes = {
-  todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
-}
+import App from '../components/App'
 
 function mapStateToProps(state) {
   return {

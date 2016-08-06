@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './containers/App'
+import App from './containers/AppContainer'
 import todos from './reducers'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'

@@ -1,8 +1,7 @@
 import React from 'react'
-import TestUtils from 'react-addons-test-utils'
-import { expect } from 'chai'
+import expect from 'expect'
 import TodoList from '../../src/components/TodoList'
-import Todo from '../../src/components/Todo'
+import { shallow } from 'enzyme'
 
 function setup(propOverrides) {
   const props = Object.assign({
@@ -19,25 +18,24 @@ function setup(propOverrides) {
     ]
   }, propOverrides)
 
-  const renderer = TestUtils.createRenderer()
-  renderer.render(<TodoList {...props} />)
-  const output = renderer.getRenderOutput()
+  const component = shallow(<TodoList {...props} />)
 
   return {
+    component,
     props,
-    output,
-    renderer
+    todos: component.find('Todo')
   }
 }
 
 describe('TodoList', () => {
-  const { output, props } = setup()
-
   it('renders a ul element', () => {
-    expect(output.type).to.equal('ul')
+    const { component } = setup()
+    expect(component.type()).toEqual('ul')
   })
 
   it('should have the same number of todo items as given', () => {
-    expect(output.props.children.length).to.equal(props.todos.length)
+    const { todos, props } = setup()
+    console.log(todos.length)
+    expect(todos.length).toEqual(props.todos.length)
   })
 })

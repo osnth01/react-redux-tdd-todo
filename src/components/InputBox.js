@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const InputBox = ({onAddTodo}) => {
+const InputBox = ({ onAddTodo }) => {
   let input
 
   return (

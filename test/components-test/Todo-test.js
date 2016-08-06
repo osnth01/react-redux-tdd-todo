@@ -1,36 +1,29 @@
 import React from 'react'
-import TestUtils from 'react-addons-test-utils'
-import { expect } from 'chai'
+import expect from 'expect'
 import Todo from '../../src/components/Todo'
+import { shallow } from 'enzyme'
 
 function setup() {
   const props = {
     text: 'test'
   }
 
-  const renderer = TestUtils.createRenderer()
-
-  renderer.render(
-    <Todo {...props} />
-  )
-
-  let output = renderer.getRenderOutput()
+  const component = shallow(<Todo {...props} />)
 
   return {
-    props,
-    output,
-    renderer
+    component,
+    props
   }
 }
 
 describe('Todo', () => {
-  const { output, props } = setup()
-
   it('renders a li element', () => {
-    expect(output.type).to.equal('li')
+    const { component } = setup()
+    expect(component.type()).toEqual('li')
   })
 
   it('renders the given todo item', () => {
-    expect(output.props.children).to.equal(props.text)
+    const { component, props } = setup()
+    expect(component.text()).toEqual(props.text)
   })
 })

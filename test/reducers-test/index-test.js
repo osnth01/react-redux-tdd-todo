@@ -1,17 +1,17 @@
-import { expect } from 'chai'
+import expect from 'expect'
 import todos from '../../src/reducers'
 
 describe('todos reducer', () => {
   it('should have an initial state', () => {
     expect(
       todos([], {type: 'NONE'})
-    ).to.deep.equal([])
+    ).toEqual([])
   })
 
   it('should add a todo item', () => {
     expect(
       todos([], {type: 'ADD_TODO', text: 'hello'})
-    ).to.deep.equal(
+    ).toEqual(
       [{text: 'hello'}]
     )
   })
