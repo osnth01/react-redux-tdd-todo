@@ -1,11 +1,17 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
 import { expect } from 'chai'
-import App from '../../src/components/App'
+import todos from '../../src/reducers'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import App from '../../src/containers/App'
 
 describe('App', () => {
+  let store = createStore(todos)
   const component = TestUtils.renderIntoDocument(
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   )
 
   it('renders "Hello!"', () => {
