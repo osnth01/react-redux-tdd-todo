@@ -1,16 +1,18 @@
 import React, { Component, PropTypes } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import TodoList from '../components/TodoList'
 import InputBox from '../components/InputBox'
+import * as TodoActions from '../actions'
 
 class App extends Component {
   render() {
-    const { todos } = this.props
+    const { todos, actions } = this.props
 
     return (
       <div>
         <h1>Hello!</h1>
-        <InputBox />
+        <InputBox onAddTodo={actions.addTodo} />
         <TodoList todos={todos}/>
       </div>
     )
@@ -18,7 +20,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
@@ -27,6 +30,13 @@ function mapStateToProps(state) {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(TodoActions, dispatch)
+  }
+}
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App)
