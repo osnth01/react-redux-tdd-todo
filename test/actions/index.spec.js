@@ -1,17 +1,33 @@
 import expect from 'expect'
-import { addTodo } from '../../src/actions'
+import { addTodo, deleteTodo } from '../../src/actions'
 
 describe('todo actions', () => {
   it('should create an ADD_TODO action', () => {
+    const text = 'test'
 
     expect(
-      addTodo('test')
+      addTodo(text)
     )
     .toEqual(
       {
         type: 'ADD_TODO',
-        text: 'test'
+        text
       }
     )
   })
+
+  it('should create a DELETE_TODO action', () => {
+    const id = 0
+
+    expect(
+      deleteTodo(id)
+    )
+    .toEqual(
+      {
+        type: 'DELETE_TODO',
+        id
+      }
+    )
+  })
+
 })
