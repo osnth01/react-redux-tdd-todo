@@ -6,7 +6,11 @@ const InputBox = ({ onAddTodo }) => {
   return (
     <form onSubmit={ e => {
         e.preventDefault()
+        if (!input.value.trim()) {
+          return
+        }
         onAddTodo(input.value)
+        input.value = ''
       }}>
 
       <input ref={node => {
