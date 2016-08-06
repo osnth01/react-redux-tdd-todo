@@ -26,7 +26,7 @@ function setup() {
 describe('Todo', () => {
   const { output, props } = setup()
 
-  it ('renders a li element', () => {
+  it('renders a li element', () => {
     expect(output.type).to.equal('li')
   })
 
