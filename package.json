@@ -4,7 +4,8 @@
   "description": "Re-implementing [React-Redux-Basic-Todo but with TDD](https://github.com/osnth01/react-redux-basic-todo)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register --require ./test/test_helper.js",
+    "start": "webpack-dev-server",
+    "test": "mocha --compilers js:babel-register --require ./test/test_helper.js --recursive",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/osnth01/react-redux-tdd-todo#readme",
   "dependencies": {
     "react": "^15.3.0",
+    "react-addons-test-utils": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2"
