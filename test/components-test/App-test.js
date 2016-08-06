@@ -1,18 +1,30 @@
 import React from 'react'
-import {
-  renderIntoDocument,
-  scryRenderedDOMComponentsWithTag
-} from 'react-addons-test-utils'
+import TestUtils from 'react-addons-test-utils'
 import { expect } from 'chai'
 import App from '../../src/components/App'
 
-describe('App', () => {
-  it('renders "Hello!"', () => {
-    const component = renderIntoDocument(
-      <App />
-    )
-    const h1 = scryRenderedDOMComponentsWithTag(component, 'h1')
+function setup() {
+  const renderer = TestUtils.createRenderer()
 
-    expect(h1[0].textContent).to.equal('Hello!')
+  renderer.render(
+    <App />
+  )
+
+  let output = renderer.getRenderOutput()
+
+  return {
+    output,
+    renderer
+  }
+}
+
+describe('App', () => {
+  const { output } = setup()
+  it('renders an h1 element', () => {
+    expect(output.type).to.equal('h1')
+  })
+
+  it('renders "Hello!"', () => {
+    expect(output.props.children).to.equal('Hello!')
   })
 })
