@@ -21,4 +21,10 @@ describe('App', () => {
       component, 'ul'
     )
   })
+
+  it('renders the input box', () => {
+    const form = TestUtils.findRenderedDOMComponentWithTag(
+      component, 'form'
+    )
+  })
 })
