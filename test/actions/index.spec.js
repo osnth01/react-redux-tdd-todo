@@ -10,6 +10,7 @@ describe('todo actions', () => {
     )
     .toEqual(
       {
+        id: 0,
         type: 'ADD_TODO',
         text
       }

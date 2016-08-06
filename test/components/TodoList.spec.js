@@ -35,7 +35,6 @@ describe('TodoList', () => {
 
   it('should have the same number of todo items as given', () => {
     const { todos, props } = setup()
-    console.log(todos.length)
     expect(todos.length).toEqual(props.todos.length)
   })
 })
