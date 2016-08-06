@@ -3,28 +3,22 @@ import TestUtils from 'react-addons-test-utils'
 import { expect } from 'chai'
 import App from '../../src/components/App'
 
-function setup() {
-  const renderer = TestUtils.createRenderer()
-
-  renderer.render(
+describe('App', () => {
+  const component = TestUtils.renderIntoDocument(
     <App />
   )
 
-  let output = renderer.getRenderOutput()
+  it('renders "Hello!"', () => {
+    const h1 = TestUtils.findRenderedDOMComponentWithTag(
+      component, 'h1'
+    )
 
-  return {
-    output,
-    renderer
-  }
-}
-
-describe('App', () => {
-  const { output } = setup()
-  it('renders an h1 element', () => {
-    expect(output.type).to.equal('h1')
+    expect(h1.textContent).to.equal('Hello!')
   })
 
-  it('renders "Hello!"', () => {
-    expect(output.props.children).to.equal('Hello!')
+  it('renders the todo list', () => {
+    const ul = TestUtils.findRenderedDOMComponentWithTag(
+      component, 'ul'
+    )
   })
 })
