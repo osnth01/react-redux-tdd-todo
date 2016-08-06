@@ -1,0 +1,20 @@
+{
+  "name": "react-redux-tdd-todo",
+  "version": "1.0.0",
+  "description": "Re-implementing [React-Redux-Basic-Todo but with TDD](https://github.com/osnth01/react-redux-basic-todo)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osnth01/react-redux-tdd-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osnth01/react-redux-tdd-todo/issues"
+  },
+  "homepage": "https://github.com/osnth01/react-redux-tdd-todo#readme"
+}
