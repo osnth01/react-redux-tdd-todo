@@ -2,19 +2,20 @@ import React, { PropTypes } from 'react'
 import InputBox from './InputBox'
 import TodoList from './TodoList'
 
-const App = ({ todos, actions }) => {
+const App = ({ todos, addTodo, deleteTodo }) => {
   return (
     <div>
       <h1>Hello!</h1>
-      <InputBox onAddTodo={actions.addTodo} />
-      <TodoList todos={todos}/>
+      <InputBox onAddTodo={ addTodo } />
+      <TodoList todos={todos} onDeleteTodo={ deleteTodo } />
     </div>
   )
 }
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  addTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired
 }
 
 export default App

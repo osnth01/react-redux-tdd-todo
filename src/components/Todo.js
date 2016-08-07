@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Todo = ({ text }) => (
+const Todo = ({ text, onClick }) => {
+  return (
   <li>
-    {text}
+    {text} <button onClick={onClick}>X</button>
   </li>
-)
+  )
+
+}
 
 export default Todo

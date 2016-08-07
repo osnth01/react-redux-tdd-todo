@@ -24,6 +24,6 @@ describe('Todo', () => {
 
   it('renders the given todo item', () => {
     const { component, props } = setup()
-    expect(component.text()).toEqual(props.text)
+    expect(component.text()).toEqual(props.text + ' X')
   })
 })
